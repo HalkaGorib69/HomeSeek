@@ -393,6 +393,132 @@
     }
 
     
+    /* ==================== MOBILE RESPONSIVE FIXES ====================== */
+
+    /* GENERAL FIX */
+    @media (max-width: 768px) {
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            padding: 20px 25px;
+            grid-template-columns: 1fr auto;
+        }
+
+        nav ul {
+            display: none; /* hide menu on mobile */
+        }
+
+        nav:after {
+            content: "☰";
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            justify-self: end;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 80vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 32px;
+        }
+
+        .hero-content p {
+            font-size: 15px;
+        }
+
+        .hero-content button {
+            padding: 12px 25px;
+            font-size: 14px;
+        }
+
+        /* WHO WE ARE */
+        .section {
+            flex-direction: column;
+            text-align: center;
+            padding: 60px 5%;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .section-content {
+            max-width: 100%;
+        }
+
+        .section-content h2 {
+            font-size: 26px;
+        }
+
+        /* SERVICES */
+        .services-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-box {
+            width: 90%;
+            max-width: 350px;
+        }
+
+        /* CLIENT JOURNEY */
+        .journey-container {
+            flex-direction: column;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .journey-box {
+            width: 100%;
+            max-width: 330px;
+        }
+
+        /* CONSULTATION BOX */
+        .consult-banner {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .consult-box {
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .consult-box h2 {
+            font-size: 24px;
+        }
+
+        /* FOOTER */
+        .footer {
+            flex-direction: column;
+            padding: 80px 8% 50px;
+            text-align: center;
+            gap: 50px;
+        }
+
+        .footer-left,
+        .footer-links,
+        .footer-contact {
+            width: 100%;
+        }
+
+        .social-icons a {
+            font-size: 30px;
+        }
+    }
+
+
 
 </style>
 </head>
