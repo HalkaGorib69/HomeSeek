@@ -18,6 +18,19 @@
         color: #000000;
     }
 
+    .site-logo {
+        height: 90px;
+        width: auto;
+    }
+
+    .site-icon {
+        height: 40px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+
+
     /* NAVBAR */
     nav {
         width: 100%;
@@ -527,7 +540,7 @@
 
 <!-- NAVBAR -->
 <nav>
-    <h2 style="color:white;">Your Logo</h2>
+    <img src="img/logo.png" class="site-logo" alt="HomeSeek Advisory Logo">
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About Us</a></li>
@@ -668,7 +681,7 @@
 <!-- FOOTER SECTION -->
 <footer class="footer">
     <div class="footer-left">
-        <h2 class="footer-logo">Your Logo</h2>
+        <img src="img/logo.png" class="site-logo" alt="HomeSeek Advisory Logo">
         <p class="footer-tagline">
             Guiding you towards your financial goals with <strong>Data Centric Real Estate investment</strong>
         </p>
@@ -683,9 +696,14 @@
     <div class="footer-links">
         <h3>Quick Links</h3>
         <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">TikTok</a></li>
+            <li style="display:flex; gap:12px; align-items:center;">
+                <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                    <img src="img/icon-instagram.png" class="site-icon" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+                    <img src="img/icon-tiktok.png" class="site-icon" alt="TikTok">
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -694,7 +712,7 @@
         <ul>
             <li>📞 +61 444 444 444</li>
             <li>✉️ homeseekadvisory@homeseekadvisory.com.au</li>
-            <li>📍 3 Casandra Ct, Berwick, Melbourne, Victoria</li>
+            <li>📍 Dengam Court, 2565, NSW</li>
         </ul>
     </div>
 </footer>
