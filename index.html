@@ -1,217 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HomeSeek Advisory</title>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+    <title>HomeSeek Advisory</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="HomeSeek Advisory is an independent buyer’s agent helping Australians purchase property with data-driven insights, suburb research, and buyer-first strategy.">
+    <meta name="keywords" content="buyers agent NSW, property buyers agent, real estate advisory Australia, investment property advice, HomeSeek Advisory">
+    <meta name="author" content="HomeSeek Advisory">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.homeseekadvisory.com.au/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HomeSeek Advisory | Independent Buyer’s Agent">
+    <meta property="og:description" content="Independent buyer’s advisory helping Australians buy smarter through data-driven property decisions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.homeseekadvisory.com.au/">
+    <meta property="og:image" content="https://www.homeseekadvisory.com.au/img/HomeSeek.png">
+<!--
 
 
-<!-- SEO Meta -->
-<meta name="description" content="HomeSeek Advisory is an independent buyer’s agent helping Australians purchase property with data-driven insights, suburb research, and buyer-first strategy.">
-<meta name="keywords" content="buyers agent NSW, property buyers agent, real estate advisory Australia, investment property advice, HomeSeek Advisory">
-<meta name="author" content="HomeSeek Advisory">
-<meta name="robots" content="index, follow">
 
-<!-- Canonical -->
-<link rel="canonical" href="https://www.homeseekadvisory.com.au/">
+-->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/factory.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
 
-<!-- Open Graph -->
-<meta property="og:title" content="HomeSeek Advisory | Independent Buyer’s Agent">
-<meta property="og:description" content="Independent buyer’s advisory helping Australians buy smarter through data-driven property decisions.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.homeseekadvisory.com.au/">
-<meta property="og:image" content="https://www.homeseekadvisory.com.au/img/HomeSeek.png">
-
-
-<style> * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; } body { background: #ffffff; color: #000000; } .site-logo { height: 90px; width: auto; } .site-icon { height: 40px; width: auto; vertical-align: middle; } /* NAVBAR */ nav { width: 100%; padding: 25px 60px; display: grid; grid-template-columns: 1fr auto 1fr; /* Center menu */ align-items: center; position: absolute; top: 0; z-index: 10; } nav ul { display: flex; gap: 35px; list-style: none; } nav ul li a { text-decoration: none; font-size: 15px; font-weight: 500; color: white; } /* HERO SECTION */ .hero { width: 100%; height: 100vh; background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat; position: relative; display: flex; justify-content: center; align-items: center; } .hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.6); } .hero-content { text-align: center; color: white; z-index: 2; max-width: 900px; padding: 20px; } .hero-content h1 { font-size: 48px; font-weight: 600; line-height: 1.3; } .hero-content p { margin-top: 18px; font-size: 18px; opacity: 0.85; } .hero-content button { margin-top: 30px; padding: 14px 34px; font-size: 16px; border: 2px solid white; color: white; background: transparent; cursor: pointer; transition: 0.3s; } .hero-content button:hover { background: white; color: black; } /* WHO WE ARE SECTION */ .section { width: 100%; display: flex; justify-content: center; padding: 100px 5%; align-items: center; gap: 60px; } .section img { width: 420px; border-radius: 12px; box-shadow: 0px 0px 20px rgba(0,0,0,0.1); } .section-content { max-width: 550px; } .section-content h2 { font-size: 32px; margin-bottom: 20px; } .section-content p { line-height: 1.7; color: #333; } .btn-dark { background: black; color: white; padding: 12px 25px; border: none; border-radius: 5px; margin-top: 25px; cursor: pointer; } /* SERVICE BOXES */ .services-section { background: #f8f8f8; padding: 100px 5%; } .services-title { text-align: center; font-size: 34px; margin-bottom: 45px; } .services-container { display: flex; justify-content: center; gap: 35px; flex-wrap: wrap; } .service-box { width: 260px; background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0px 0px 20px rgba(0,0,0,0.1); } .service-box h3 { margin-top: 15px; font-size: 20px; } .service-box p { margin-top: 10px; color: #555; font-size: 14px; line-height: 1.6; } .get-started-box { background: black; color: white; } .get-started-box h3 { font-size: 20px; margin-top: 40px; } /* CLIENT JOURNEY SECTION */ .journey-section { width: 100%; padding: 100px 5% 120px; background: white; text-align: center; } .journey-title { font-size: 36px; margin-bottom: 70px; color: black; } .journey-container { display: flex; justify-content: space-between; gap: 40px; flex-wrap: nowrap; } .journey-box { width: 15%; min-width: 180px; } .icon-circle { width: 90px; height: 90px; border: 2px solid black; border-radius: 50%; margin: 0 auto 25px; display: flex; justify-content: center; align-items: center; font-size: 32px; } .journey-box h3 { font-size: 18px; margin-bottom: 15px; font-weight: 600; } .journey-box p { font-size: 13.5px; color: #444; line-height: 1.7; width: 90%; margin: 0 auto; } /* Responsive */ @media (max-width: 1100px) { .journey-container { flex-wrap: wrap; justify-content: center; } .journey-box { width: 40%; margin-bottom: 45px; } } @media (max-width: 700px) { .journey-box { width: 80%; } .icon-circle { width: 80px; height: 80px; } } /* CONSULTATION BANNER */ .consult-banner { width: 100%; display: flex; justify-content: center; margin-top: 80px; margin-bottom: -80px; /* overlaps like screenshot */ } .consult-box { width: 70%; background: black; color: white; padding: 60px; text-align: center; border-radius: 15px; box-shadow: 0px 5px 30px rgba(0,0,0,0.2); } .consult-box h2 { font-size: 32px; font-weight: 600; margin-bottom: 15px; } .consult-box p { font-size: 15px; opacity: 0.9; margin-bottom: 30px; } .consult-btn { padding: 12px 35px; background: white; color: black; border: none; cursor: pointer; border-radius: 5px; font-size: 15px; transition: 0.3s; } .consult-btn:hover { background: #e6e6e6; } /* FOOTER */ .footer { width: 100%; padding: 140px 5% 70px; background: #111; color: white; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; } .footer-logo { font-size: 28px; font-weight: 700; margin-bottom: 15px; } .footer-tagline { max-width: 380px; font-size: 14px; line-height: 1.6; margin-bottom: 25px; } /* Footer Links */ .footer-links h3, .footer-contact h3 { font-size: 18px; margin-bottom: 15px; } .footer-links ul, .footer-contact ul { list-style: none; } .footer-links ul li, .footer-contact ul li { margin-bottom: 10px; font-size: 14px; } .footer-links ul li a { color: white; text-decoration: none; opacity: 1.0; } .footer-links ul li a:hover { opacity: 1; text-decoration: underline; } .footer-contact ul li { opacity: 0.85; } /* QUICK LINKS ICONS — DESKTOP + MOBILE */ .footer-links { text-align: center; } .social-links { list-style: none; display: flex; justify-content: center; align-items: center; gap: 22px; padding: 0; margin-top: 15px; flex-wrap: nowrap; /* single line always */ } .social-links li { display: inline-flex; } .site-icon { height: 36px; width: auto; transition: transform 0.2s ease, opacity 0.2s ease; } .site-icon:hover { transform: scale(1.1); opacity: 0.9; } /* COPYRIGHT */ .copyright { width: 100%; text-align: center; padding: 20px; background: #0d0d0d; color: #aaa; font-size: 13px; letter-spacing: 0.5px; } /* NAVBAR MENU TOGGLE ICON */ .menu-toggle { display: none; font-size: 28px; color: white; cursor: pointer; } /* ==================== MOBILE RESPONSIVE FIXES ====================== */ /* GENERAL FIX */ @media (max-width: 768px) { body { overflow-x: hidden; } /* NAVBAR */ nav { grid-template-columns: 1fr auto; } nav ul { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0,0,0,0.95); flex-direction: column; gap: 0; display: none; /* hidden by default */ } nav ul li { border-bottom: 1px solid rgba(255,255,255,0.1); } nav ul li a { padding: 18px; display: block; text-align: center; } nav ul.show { display: flex; /* shown when toggled */ } .menu-toggle { display: block; } /* HERO SECTION */ .hero { height: 80vh; padding: 20px; text-align: center; } .hero-content h1 { font-size: 32px; } .hero-content p { font-size: 15px; } .hero-content button { padding: 12px 25px; font-size: 14px; } /* WHO WE ARE */ .section { flex-direction: column; text-align: center; padding: 60px 5%; } .section img { width: 100%; max-width: 350px; } .section-content { max-width: 100%; } .section-content h2 { font-size: 26px; } /* SERVICES */ .services-container { flex-direction: column; align-items: center; } .service-box { width: 90%; max-width: 350px; } /* CLIENT JOURNEY */ .journey-container { flex-direction: column; gap: 50px; align-items: center; } .journey-box { width: 100%; max-width: 330px; } /* CONSULTATION BOX */ .consult-banner { margin-top: 40px; margin-bottom: 40px; padding: 0 20px; } .consult-box { width: 100%; padding: 40px 20px; } .consult-box h2 { font-size: 24px; } /* FOOTER */ .footer { flex-direction: column; padding: 80px 8% 50px; text-align: center; gap: 50px; } .footer-left, .footer-contact { width: 100%; } } </style>
-
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav>
-    <img src="img/HomeSeek.png" class="site-logo" alt="HomeSeek Advisory Logo">
-    <ul id="navMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-    </ul>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>HomeSeek Advisory</h1>
-        <p>Connecting investors with high-growth, high-cashflow properties through data-driven insights across 15,000+ suburbs.</p>
-        <button>Explore More</button>
-    </div>
-</section>
-
-<!-- WHO WE ARE -->
-<section class="section">
-    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=900&q=80" alt="">
+    </head>
     
-    <div class="section-content">
-        <h2>Who We Are</h2>
-        <p>
-            Our expertise in real estate research and market analytics helps investors make informed decisions.
-            We analyze deep data sets and provide insights tailored to your investment goals.
-        </p>
-        <button class="btn-dark">Learn More</button>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services-section">
-    <h2 class="services-title">Get Started With Our Service</h2>
-
-    <div class="services-container">
-
-        <div class="service-box">
-            <h3>Invest in Property</h3>
-            <p>Ideal for investors who want one or a few high-performing properties without building a big portfolio.</p>
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-
-        <div class="service-box">
-            <h3>Property Portfolio</h3>
-            <p>For investors aiming to scale by building a strategic and diversified long-term property portfolio.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Overseas Investor</h3>
-            <p>Tailored solutions for international buyers looking to enter the Australian property market.</p>
-        </div>
-
-        <div class="service-box get-started-box">
-            <h3>Get Started →</h3>
-        </div>
-    </div>
-</section>
-
-<section class="journey-section">
-    <h2 class="journey-title">Client's Journey</h2>
-
-    <div class="journey-container">
-
-        <div class="journey-box">
-            <div class="icon-circle">
-                📞
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#welcome" class="logo">
+                            <img src="assets/images/HomeSeek.png" alt="HomeSeek Advisory Logo" class="site-logo">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#welcome" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#about">About</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#frequently-question">Frequently Questions</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Us</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
             </div>
-            <h3>Discover Call</h3>
-            <p>
-                Book a 10–15 min introductory call to see if we are the right fit and answer your questions.
-            </p>
         </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-        <div class="journey-box">
-            <div class="icon-circle">
-                💡
+
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <h1>Independent Buyer’s Agents <strong>On Your Side</strong></h1>
+                    <p>
+                    HomeSeek Advisory helps Australians buy property with confidence using
+                    data-driven suburb research, strategy, and buyer-first representation.
+                    </p>
+                    <a href="#contact-us" class="main-button-slider">Book a Strategy Call</a>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="assets/images/slider-icon.png" class="rounded img-fluid d-block mx-auto" alt="First Vector Graphic">
+                    </div>
+                </div>
             </div>
-            <h3>Strategy</h3>
-            <p>
-                We have an in-depth strategy session to discuss your goals, risk profile, finances, and sourcing brief.
-            </p>
         </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
 
-        <div class="journey-box">
-            <div class="icon-circle">
-                📊
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
+                    <div class="left-heading">
+                        <h5>Who We Are</h5>
+                    </div>
+                    <div class="left-text">
+                        <p>
+                            HomeSeek Advisory is an independent buyer’s agency focused on helping
+                            clients make smarter property decisions.
+                            <br><br>
+                            We analyse over 15,000 suburbs across Australia, using supply, demand,
+                            growth indicators, and risk metrics to remove emotion from the buying process.
+                            Our role is simple — represent <strong>you</strong>, not the seller.
+                        </p>
+                        <a href="#services" class="main-button">Our Services</a>
+                    </div>
+                </div>
             </div>
-            <h3>Research</h3>
-            <p>
-                We analyze 15,000+ suburbs to find high-growth areas using data on supply, demand, and trends.
-            </p>
-        </div>
-
-        <div class="journey-box">
-            <div class="icon-circle">
-                ⚙️
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
             </div>
-            <h3>Pursuit</h3>
-            <p>
-                After identifying target suburbs, we source properties tailored to your goals backed by data.
-            </p>
         </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
 
-        <div class="journey-box">
-            <div class="icon-circle">
-                🛍️
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about2">
+        <div class="container">
+            <div class="row">
+                <div class="left-text col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <div class="left-heading">
+                        <h5>Why Buyers Choose HomeSeek Advisory</h5>
+                    </div>
+                    <p>Buying property without independent advice can be risky. We exist to level the playing field for buyers.</p>
+                    <ul>
+                        <li>
+                            <img src="assets/images/about-icon-01.png" alt="">
+                            <div class="text">
+                                <h6>Data-Driven Decisions</h6>
+                                <p>We use real suburb-level data to identify growth, yield, and risk</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="assets/images/about-icon-02.png" alt="">
+                            <div class="text">
+                                <h6>Buyer-Only Representation</h6>
+                                <p>We work exclusively for buyers — never for developers or sellers.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="assets/images/about-icon-03.png" alt="">
+                            <div class="text">
+                                <h6>End-to-End Support</h6>
+                                <p>From strategy to settlement, we manage the entire buying process.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-image col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <img src="assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
             </div>
-            <h3>Buying Process</h3>
-            <p>
-                We assist with inspections, due diligence, settlement support, and property management selection.
-            </p>
         </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
 
-        <div class="journey-box">
-            <div class="icon-circle">
-                💬
+
+    <!-- ***** Features Small Start ***** -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="assets/images/service-icon-01.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Investment Property</h5>
+                        <p>Ideal for investors seeking a high-performing property aligned with their income, growth, and risk goals.</p>
+                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="assets/images/service-icon-02.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">First Home Buyer</h5>
+                        <p>Guidance and negotiation support to help first-time buyers avoid costly mistakes. </p>
+                        <a href="#" class="main-button">Discover More</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="assets/images/service-icon-03.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Interstate Buyers</h5>
+                        <p>We inspect, assess, and negotiate on your behalf anywhere in Australia.</p>
+                        <a href="#" class="main-button">More Detail</a>
+                    </div>
+                    <div class="item service-item">
+                        <div class="icon">
+                            <i><img src="assets/images/service-icon-02.png" alt=""></i>
+                        </div>
+                        <h5 class="service-title">Overseas Investors</h5>
+                        <p>Complete support for international buyers entering the Australian market.</p>
+                        <a href="#" class="main-button">Read More</a>
+                    </div>
+                </div>
             </div>
-            <h3>Support</h3>
-            <p>
-                Ongoing support with tenant selection, performance checks, and guidance to grow your portfolio.
-            </p>
         </div>
-
-    </div>
-</section>
-
-<!-- CONSULTATION BANNER -->
-<section class="consult-banner">
-    <div class="consult-box">
-        <h2>On The Hunt For Your Perfect Home?</h2>
-        <p>Get in touch with us to begin building your dream today</p>
-        <button class="consult-btn">Book a Consultation</button>
-    </div>
-</section>
-
-<!-- FOOTER SECTION -->
-<footer class="footer">
-    <div class="footer-left">
-        <img src="img/HomeSeek.png" class="site-logo" alt="HomeSeek Advisory Logo">
-        <p class="footer-tagline">
-            Guiding you towards your financial goals with <strong>Data Centric Real Estate investment</strong>
-        </p>
-
-    </div>
-
-    <div class="footer-links">
-        <h3>Quick Links</h3>
-        <ul class="social-links">
-            <li>
-                <a href="https://www.instagram.com/homeseek_advisory" target="_blank">
-                    <img src="img/icon-instagram.png" class="site-icon" alt="Instagram">
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tiktok.com/@homeseek.advisory" target="_blank">
-                    <img src="img/icon-tiktok.png" class="site-icon" alt="TikTok">
-                </a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/profile.php?id=61584138651078" target="_blank">
-                    <img src="img/icon-facebook.png" class="site-icon" alt="Facebook">
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="footer-contact">
-        <h3>Contact Us</h3>
-        <ul>
-            <li>📞 +61 430 654 824</li>
-            <li>✉️ homeseekadvisory@homeseekadvisory.com.au</li>
-            <li>📍 Dengam Court, 2565, NSW</li>
-        </ul>
-    </div>
-</footer>
-
-<p class="copyright">Copyright © 2026 HomeSeek Advisory. All Rights Reserved.</p>
+    </section>
+    <!-- ***** Features Small End ***** -->
 
 
-<script src="main.js"></script>
+    <!-- ***** Frequently Question Start ***** -->
+    <section class="section" id="frequently-question">
+        <div class="container">
 
-</body>
+            <!-- Section Title -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                </div>
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="section-heading">
+                        <p>
+                            Common questions about working with an independent buyer’s agent
+                            and how HomeSeek Advisory supports you through the buying process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Left Text -->
+                <div class="left-text col-lg-6 col-md-6 col-sm-12">
+                    <h5>Why work with a buyer’s agent?</h5>
+                    <div class="accordion-text">
+                        <p>
+                            Buying property is one of the largest financial decisions you will make.
+                            Without independent representation, buyers often rely on sales agents
+                            whose duty is to the seller.
+                        </p>
+                        <p>
+                            HomeSeek Advisory represents you exclusively. We use suburb-level data,
+                            risk analysis, and on-the-ground research to help you avoid emotional
+                            decisions and costly mistakes.
+                        </p>
+                        <span>
+                            Email:
+                            <a href="mailto:homeseekadvisory@homeseekadvisory.com.au">
+                                homeseekadvisory@homeseekadvisory.com.au
+                            </a>
+                        </span>
+                        <br><br>
+                        <a href="#contact-us" class="main-button">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Accordion -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="accordions is-first-expanded">
+
+                        <!-- FAQ 1 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>What does HomeSeek Advisory do?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        We are independent buyer’s agents who act solely in the
+                                        buyer’s best interest. Our services include strategy
+                                        development, suburb research, property sourcing,
+                                        due diligence, and negotiation.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ 2 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Do you work with investors or owner-occupiers?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        We work with both property investors and owner-occupiers.
+                                        Our approach is tailored based on your goals, whether that
+                                        is capital growth, cash flow, lifestyle, or long-term
+                                        portfolio building.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ 3 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>How do you choose suburbs and properties?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        We analyse over 15,000 suburbs using data on supply,
+                                        demand, vacancy rates, price trends, rental performance,
+                                        and future infrastructure. Properties are then assessed
+                                        individually for risk, value, and suitability.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ 4 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Can you buy interstate on my behalf?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        Yes. We regularly assist interstate and overseas buyers.
+                                        We conduct inspections, coordinate building reports,
+                                        liaise with local professionals, and negotiate on your
+                                        behalf as if you were present.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ 5 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>Do you receive commissions from sellers or developers?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        No. HomeSeek Advisory does not accept commissions,
+                                        kickbacks, or referral fees from selling agents or
+                                        developers. Our loyalty is 100% to our clients.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ 6 -->
+                        <article class="accordion">
+                            <div class="accordion-head">
+                                <span>How do I get started?</span>
+                                <span class="icon">
+                                    <i class="icon fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="content">
+                                    <p>
+                                        The first step is a discovery call where we discuss your
+                                        goals, budget, timeline, and strategy. From there, we
+                                        outline the best way to support you and move forward.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ***** Frequently Question End ***** -->
+
+
+
+    <!-- ***** Contact Us Start ***** -->
+    <section class="section" id="contact-us">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- ***** Contact Map Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div id="map">
+                      <!-- How to change your own map point
+                           1. Go to Google Maps
+                           2. Click on your location point
+                           3. Click "Share" and choose "Embed map" tab
+                           4. Copy only URL and paste it within the src="" field below
+                    -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31671.30485679026!2d150.81013040083008!3d-33.98153804724823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ec3f7e58014b%3A0x5017d681632b450!2sDenham%20Court%20NSW%202565!5e1!3m2!1sen!2sau!4v1769834219787!5m2!1sen!2sau" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- ***** Contact Map End ***** -->
+
+                <!-- ***** Contact Form Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="post">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Full Name" required="" class="contact-field">
+                              </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                              <fieldset>
+                                <input name="email" type="text" id="email" placeholder="E-mail" required="" class="contact-field">
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <textarea name="message" rows="6" id="message" placeholder="Your Message" required="" class="contact-field"></textarea>
+                              </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button">Send It</button>
+                              </fieldset>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ***** Contact Form End ***** -->
+            </div>
+        </div>
+    </section>
+    <!-- ***** Contact Us End ***** -->
+
+    
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">Copyright &copy; 2026 HomeSeek Advisory Company 
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/profile.php?id=61584138651078"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.tiktok.com/@homeseek.advisory"><i class="fa fa-music"></i></a></li>
+                        <li><a href="https://www.instagram.com/homeseek_advisory"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+  </body>
 </html>
