@@ -440,6 +440,16 @@
         letter-spacing: 0.5px;
     }
 
+
+    /* NAVBAR MENU TOGGLE ICON */
+    .menu-toggle {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+
+
     
     /* ==================== MOBILE RESPONSIVE FIXES ====================== */
 
@@ -452,12 +462,32 @@
 
         /* NAVBAR */
         nav {
-            padding: 20px 25px;
             grid-template-columns: 1fr auto;
         }
 
         nav ul {
-            display: none; /* hide menu on mobile */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.95);
+            flex-direction: column;
+            gap: 0;
+            display: none; /* hidden by default */
+        }
+
+        nav ul li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav ul li a {
+            padding: 18px;
+            display: block;
+            text-align: center;
+        }
+
+        nav ul.show {
+            display: flex; /* shown when toggled */
         }
 
         nav:after {
@@ -466,6 +496,10 @@
             color: white;
             cursor: pointer;
             justify-self: end;
+        }
+
+        .menu-toggle {
+            display: block;
         }
 
         /* HERO SECTION */
@@ -578,6 +612,7 @@
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
 <!-- HERO -->
@@ -751,6 +786,8 @@
 
 <p class="copyright">Copyright © 2026 HomeSeek Advisory. All Rights Reserved.</p>
 
+
+<script src="js/main.js"></script>
 
 </body>
 </html>
