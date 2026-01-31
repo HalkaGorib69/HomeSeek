@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HomeSeek Advisory</title>
 
+<!-- SEO Meta -->
+<meta name="description" content="HomeSeek Advisory is an independent buyer’s agent helping Australians purchase property with data-driven insights, suburb research, and buyer-first strategy.">
+<meta name="keywords" content="buyers agent NSW, property buyers agent, real estate advisory Australia, investment property advice, HomeSeek Advisory">
+<meta name="author" content="HomeSeek Advisory">
+<meta name="robots" content="index, follow">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://www.homeseekadvisory.com.au/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="HomeSeek Advisory | Independent Buyer’s Agent">
+<meta property="og:description" content="Independent buyer’s advisory helping Australians buy smarter through data-driven property decisions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.homeseekadvisory.com.au/">
+<meta property="og:image" content="https://www.homeseekadvisory.com.au/img/HomeSeek.png">
+
+
 <style>
     * {
         margin: 0;
@@ -27,7 +44,6 @@
         height: 40px;
         width: auto;
         vertical-align: middle;
-        margin-right: 8px;
     }
 
 
@@ -381,6 +397,38 @@
         opacity: 0.85;
     }
 
+    /* QUICK LINKS ICONS — DESKTOP + MOBILE */
+    .footer-links {
+        text-align: center;
+    }
+
+    .social-links {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 22px;
+        padding: 0;
+        margin-top: 15px;
+        flex-wrap: nowrap; /* single line always */
+    }
+
+    .social-links li {
+        display: inline-flex;
+    }
+
+    .site-icon {
+        height: 36px;
+        width: auto;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .site-icon:hover {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+
+
     /* COPYRIGHT */
     .copyright {
         width: 100%;
@@ -508,7 +556,6 @@
         }
 
         .footer-left,
-        .footer-links,
         .footer-contact {
             width: 100%;
         }
@@ -673,15 +720,19 @@
 
     <div class="footer-links">
         <h3>Quick Links</h3>
-        <ul>
-            <li style="display:flex; gap:6px; align-items:center;">
-                <a href="https://www.instagram.com/homeseek_advisory" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+        <ul class="social-links">
+            <li>
+                <a href="https://www.instagram.com/homeseek_advisory" target="_blank">
                     <img src="img/icon-instagram.png" class="site-icon" alt="Instagram">
                 </a>
-                <a href="https://www.tiktok.com/@homeseek.advisory" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@homeseek.advisory" target="_blank">
                     <img src="img/icon-tiktok.png" class="site-icon" alt="TikTok">
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61584138651078" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+            </li>
+            <li>
+                <a href="https://www.facebook.com/profile.php?id=61584138651078" target="_blank">
                     <img src="img/icon-facebook.png" class="site-icon" alt="Facebook">
                 </a>
             </li>
