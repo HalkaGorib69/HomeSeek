@@ -220,9 +220,10 @@ a.main-button-slider {
   font-size: 13px;
   border-radius: 20px;
   padding: 12px 20px;
-  background-color: #f55858;
+  background-color: #ffc400;
   text-transform: uppercase;
-  color: #fff;
+  color: #000000;
+  font-weight: 500;
   letter-spacing: 0.25px;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -231,7 +232,9 @@ a.main-button-slider {
 }
 
 a.main-button-slider:hover {
-  background-color: #0088e8;
+  background-color: #ffea30;
+  transform: scale(1.5);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
 
 a.main-button {
@@ -1463,4 +1466,28 @@ preloader
     .site-logo {
         height: 40px;      /* mobile size */
     }
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 180px;
+    right: 20px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 60px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.whatsapp-float:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
