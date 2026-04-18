@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "location": "Surry Hills, NSW",
+    "images": ["p1.webp"],
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "parking": 2,
+    "landSize": "280 m²",
+    "yearPurchased": 2023,
+    "purchasedPrice": "$850,000",
+    "currentPrice": "$920,000",
+    "rent": "$520/week",
+    "description": "Strategic acquisition in one of Sydney's most sought-after suburbs. The property was secured below market value through disciplined negotiation and careful site selection. Strong rental demand in the area provides consistent cash flow, while capital growth is supported by proximity to amenities and long-term infrastructure development."
+  },
+  {
+    "id": 2,
+    "location": "Bayside, VIC",
+    "images": ["p1.webp"],
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "parking": 3,
+    "landSize": "450 m²",
+    "yearPurchased": 2022,
+    "purchasedPrice": "$1,200,000",
+    "currentPrice": "$1,380,000",
+    "rent": "$680/week",
+    "description": "Premium residential acquisition in prestigious Bayside location. Exceptional value through expert negotiation and market timing. Substantial appreciation since purchase, combined with strong rental yield. The property's size and configuration make it ideal for growing families or as an investment vehicle with consistent returns."
+  },
+  {
+    "id": 3,
+    "location": "Paddington, NSW",
+    "images": ["p1.webp"],
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "parking": 1,
+    "landSize": "320 m²",
+    "yearPurchased": 2024,
+    "purchasedPrice": "$950,000",
+    "currentPrice": "$980,000",
+    "rent": "$580/week",
+    "description": "Recent acquisition in the vibrant Paddington area. Smart positioning for growth in this increasingly popular inner-west suburb. Quality renovation potential and strong tenant demand. The property's character charm combined with modern amenities nearby creates an attractive investment profile for both owner-occupiers and investors."
+  },
+  {
+    "id": 4,
+    "location": "Toorak, VIC",
+    "images": ["p1.webp"],
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "parking": 3,
+    "landSize": "550 m²",
+    "yearPurchased": 2021,
+    "purchasedPrice": "$1,500,000",
+    "currentPrice": "$1,680,000",
+    "rent": "$750/week",
+    "description": "Premium acquisition in prestigious Toorak. Exceptional value capture through strategic timing and expert negotiation. Outstanding capital growth with strong rental returns. The property's premium location, size, and quality position it as a flagship investment. Perfect for high-net-worth individuals seeking both lifestyle and investment returns in Melbourne's most desirable suburb."
+  }
+]

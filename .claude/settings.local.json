@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l d:\\\\\\\\HomeSeek\\\\\\\\assets\\\\\\\\css\\\\\\\\factory.css)"
+    ]
+  }
+}

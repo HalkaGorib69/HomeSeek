@@ -2,14 +2,16 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = htmlspecialchars($_POST['name']);
+    $phone = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    $to = "homeseekadvisory@homeseekadvisory.com.au";
-    $subject = "New Website Enquiry - HomeSeek Advisory";
+    $to = "sabi.hossan@homeseekadvisory.com.au";
+    $subject = "Website lead, Customer Query ($name)";
 
     $body = "You have received a new enquiry:\n\n";
     $body .= "Name: $name\n";
+    $body .= "Phone: $phone\n";
     $body .= "Email: $email\n\n";
     $body .= "Message:\n$message";
 
