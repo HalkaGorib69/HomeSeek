@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold text-gold-400 mb-4">HomeSeek Advisory</h3>
@@ -11,60 +11,6 @@ export default function Footer() {
               data-driven insights, suburb research, and buyer-first strategy across
               Australia.
             </p>
-          </div>
-
-          {/* About Us */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">About Us</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#about" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Our Approach
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Recent Wins
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#home" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-300 hover:text-gold-400 transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
           </div>
 
           {/* Contact */}

@@ -8,12 +8,12 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (
@@ -49,13 +49,13 @@ export default function Header() {
           {/* CTA Buttons - Right */}
           <div className="hidden md:flex space-x-3 ml-8">
             <Link
-              href="#contact"
+              href="/contact"
               className="px-6 py-2.5 border-2 border-navy-700 text-navy-700 rounded hover:border-navy-800 hover:text-navy-800 transition-colors text-sm font-semibold"
             >
               CAREER
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="px-6 py-2.5 bg-gold-500 text-white rounded hover:bg-gold-600 transition-colors text-sm font-bold"
             >
               REFERRAL
@@ -98,14 +98,14 @@ export default function Header() {
             ))}
             <div className="space-y-2 pt-4 border-t">
               <Link
-                href="#contact"
+                href="/contact"
                 className="block px-4 py-2 border-2 border-navy-700 text-navy-700 rounded text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book a Call
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="block px-4 py-2 bg-gold-500 text-white rounded text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >

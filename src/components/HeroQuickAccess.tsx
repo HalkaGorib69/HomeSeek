@@ -9,7 +9,7 @@ export default function HeroQuickAccess() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Our Services */}
           <Link
-            href="#services"
+            href="/#services"
             className="group hover:bg-white/10 rounded-lg p-6 transition-all cursor-pointer"
           >
             <h3 className="text-2xl font-bold mb-3 text-gold-400 group-hover:text-gold-300">
@@ -23,7 +23,7 @@ export default function HeroQuickAccess() {
 
           {/* Recent Wins */}
           <Link
-            href="#portfolio"
+            href="/#portfolio"
             className="group hover:bg-white/10 rounded-lg p-6 transition-all cursor-pointer"
           >
             <h3 className="text-2xl font-bold mb-3 text-gold-400 group-hover:text-gold-300">
@@ -36,25 +36,29 @@ export default function HeroQuickAccess() {
           </Link>
 
           {/* General Enquiry */}
-          <div className="group hover:bg-white/10 rounded-lg p-6 transition-all">
-            <h3 className="text-2xl font-bold mb-4 text-gold-400">
+          <Link
+            href="/contact"
+            className="group hover:bg-white/10 rounded-lg p-6 transition-all cursor-pointer"
+          >
+            <h3 className="text-2xl font-bold mb-4 text-gold-400 group-hover:text-gold-300">
               General Enquiry
             </h3>
             <div className="space-y-3 text-gray-100 text-sm">
               <p className="flex items-center gap-2">
                 <span className="font-semibold">Phone</span>
-                <a href="tel:+61401540064" className="text-gold-400 hover:text-gold-300">
+                <span className="text-gold-400 group-hover:text-gold-300">
                   +61 401 540 064
-                </a>
+                </span>
               </p>
               <p className="flex items-center gap-2">
                 <span className="font-semibold">Email</span>
-                <a href="mailto:sabi.hossan@homeseekadvisory.com.au" className="text-gold-400 hover:text-gold-300 break-all">
+                <span className="text-gold-400 group-hover:text-gold-300 break-all">
                   sabi@homeseekadvisory.com.au
-                </a>
+                </span>
               </p>
             </div>
-          </div>
+            <p className="text-gold-400 mt-4 font-semibold text-sm">Contact Us →</p>
+          </Link>
         </div>
       </div>
     </section>

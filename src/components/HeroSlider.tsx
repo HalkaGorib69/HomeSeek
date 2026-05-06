@@ -22,7 +22,7 @@ export default function HeroSlider() {
               data-driven suburb research, strategy, and buyer-first representation.
             </p>
             <Link
-              href="#contact"
+              href="/contact"
               className="inline-block px-8 py-3 bg-gold-500 text-white text-lg font-semibold rounded hover:bg-gold-600 transition-colors"
             >
               Get in Touch

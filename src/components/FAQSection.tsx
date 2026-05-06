@@ -108,7 +108,7 @@ export default function FAQSection() {
               </a>
             </p>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-block px-8 py-3 bg-gold-500 text-white font-semibold rounded hover:bg-gold-600 transition-colors"
             >
               Contact Us

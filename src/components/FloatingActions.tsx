@@ -46,7 +46,7 @@ export default function FloatingActions() {
 
       {/* Chat/Enquiry Button */}
       <a
-        href="#contact"
+        href="/contact"
         className="flex items-center justify-center w-14 h-14 bg-gold-500 text-white rounded-full shadow-lg hover:bg-gold-600 hover:shadow-xl transition-all transform hover:scale-110"
         title="Send inquiry"
       >
