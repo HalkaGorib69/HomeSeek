@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import ParallaxSection from './ParallaxSection'
+import { useScroll } from '@/context/ScrollContext'
 
 const faqs = [
   {
@@ -36,11 +38,21 @@ const faqs = [
 ]
 
 export default function FAQSection() {
+  const { scrollY } = useScroll()
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [sectionOffset, setSectionOffset] = useState(0)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const rect = sectionRef.current.getBoundingClientRect()
+    const elementTop = window.scrollY + rect.top
+    setSectionOffset(elementTop)
+  }, [])
 
   return (
-    <section id="faq" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ParallaxSection id="faq" className="py-20 bg-gray-50" parallaxStrength={0.1}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-navy-700 mb-4">
             Frequently Asked Questions
@@ -116,6 +128,6 @@ export default function FAQSection() {
           </div>
         </div>
       </div>
-    </section>
+    </ParallaxSection>
   )
 }

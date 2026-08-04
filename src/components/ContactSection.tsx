@@ -1,8 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import ParallaxSection from './ParallaxSection'
+import Card3D from './Card3D'
+import { useScroll } from '@/context/ScrollContext'
 
 export default function ContactSection() {
+  const { scrollY } = useScroll()
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -11,6 +15,15 @@ export default function ContactSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [sectionOffset, setSectionOffset] = useState(0)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const rect = sectionRef.current.getBoundingClientRect()
+    const elementTop = window.scrollY + rect.top
+    setSectionOffset(elementTop)
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,8 +58,8 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ParallaxSection id="contact" className="py-20 bg-white" parallaxStrength={0.1}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left: Contact Info */}
           <div>
@@ -151,7 +164,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right: Contact Form */}
-          <div>
+          <Card3D className="depth-2">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
@@ -224,9 +237,9 @@ export default function ContactSection() {
                 loading="lazy"
               />
             </div>
-          </div>
+          </Card3D>
         </div>
       </div>
-    </section>
+    </ParallaxSection>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ScrollProvider } from '@/context/ScrollContext'
 
 export const metadata: Metadata = {
   title: 'HomeSeek Advisory | Independent Buyer\'s Agent',
@@ -25,7 +26,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
       </head>
       <body className="bg-white text-gray-700">
-        {children}
+        <ScrollProvider>
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   )

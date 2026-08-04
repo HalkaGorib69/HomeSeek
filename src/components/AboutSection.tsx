@@ -2,8 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import Card3D from './Card3D'
+import ParallaxSection from './ParallaxSection'
+import { useScroll } from '@/context/ScrollContext'
+import { useRef, useEffect, useState } from 'react'
 
 export default function AboutSection() {
+  const { scrollY } = useScroll()
   const benefits = [
     {
       icon: '/images/about-icon-01.png',
@@ -22,19 +27,29 @@ export default function AboutSection() {
     },
   ]
 
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const [aboutOffset, setAboutOffset] = useState(0)
+
+  useEffect(() => {
+    if (!aboutRef.current) return
+    const rect = aboutRef.current.getBoundingClientRect()
+    const elementTop = window.scrollY + rect.top
+    setAboutOffset(elementTop)
+  }, [])
+
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ParallaxSection id="about" className="py-20 bg-white" parallaxStrength={0.1}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={aboutRef}>
         {/* Who We Are Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="relative h-96">
+          <Card3D className="relative h-96 rounded-lg overflow-hidden">
             <Image
               src="/images/left-image.png"
               alt="About HomeSeek"
               fill
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
-          </div>
+          </Card3D>
           <div>
             <h2 className="text-5xl font-bold mb-6 text-navy-700">Who We Are</h2>
             <p className="text-lg text-gray-600 mb-4">
@@ -48,7 +63,7 @@ export default function AboutSection() {
             </p>
             <Link
               href="#services"
-              className="inline-block px-8 py-3 bg-gold-500 text-white font-semibold rounded hover:bg-gold-600 transition-colors"
+              className="inline-block px-8 py-3 bg-gold-500 text-white font-semibold rounded hover:bg-gold-600 transition-colors depth-2 hover:depth-4 transform hover:scale-105 duration-300"
             >
               Our Services
             </Link>
@@ -56,7 +71,9 @@ export default function AboutSection() {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className="bg-gradient-to-r from-navy-700 to-navy-800 rounded-lg p-12 text-white">
+        <div
+          className="bg-gradient-to-r from-navy-700 to-navy-800 rounded-lg p-12 text-white depth-3"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div>
               <h3 className="text-4xl font-bold mb-6">Why Buyers Choose HomeSeek Advisory</h3>
@@ -67,8 +84,11 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-6">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="flex gap-4">
+              {benefits.map((benefit, index) => (
+                <div
+                  key={benefit.title}
+                  className="flex gap-4 hover:translate-x-2 transition-transform duration-300"
+                >
                   <div className="flex-shrink-0">
                     <div className="relative w-16 h-16">
                       <Image
@@ -89,6 +109,6 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
-    </section>
+    </ParallaxSection>
   )
 }

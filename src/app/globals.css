@@ -9,14 +9,70 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Smooth scroll anchors */
 a {
   scroll-behavior: smooth;
+}
+
+/* 3D Perspective */
+:root {
+  --perspective: 1200px;
+}
+
+/* Lenis smooth scroll styles */
+html.lenis {
+  height: auto;
+}
+
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+  overflow: hidden;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Depth and shadow effects */
+.depth-1 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.depth-2 {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.depth-3 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.depth-4 {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Parallax background */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }

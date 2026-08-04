@@ -1,13 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import PropertyModal from './PropertyModal'
+import Card3D from './Card3D'
+import ParallaxSection from './ParallaxSection'
 import { Property } from '@/types/property'
+import { useScroll } from '@/context/ScrollContext'
 
 export default function PropertyWins() {
+  const { scrollY } = useScroll()
   const [properties, setProperties] = useState<Property[]>([])
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [sectionOffset, setSectionOffset] = useState(0)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+    const rect = sectionRef.current.getBoundingClientRect()
+    const elementTop = window.scrollY + rect.top
+    setSectionOffset(elementTop)
+  }, [])
 
   useEffect(() => {
     // Load properties from JSON
@@ -83,10 +96,13 @@ export default function PropertyWins() {
     ])
   }, [])
 
+  const distanceFromCenter = Math.abs(scrollY - sectionOffset)
+  const staggerDelay = 0.05
+
   return (
     <>
-      <section id="portfolio" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParallaxSection id="portfolio" className="py-20 bg-white" parallaxStrength={0.1}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-navy-700 mb-4">
               Recent Buyer <span className="text-gold-500">Wins</span>
@@ -100,73 +116,75 @@ export default function PropertyWins() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {properties.map((property) => (
-              <div
+            {properties.map((property, index) => (
+              <Card3D
                 key={property.id}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-                onClick={() => setSelectedProperty(property)}
+                className="bg-white rounded-lg overflow-hidden cursor-pointer transform"
               >
-                {/* Property Image */}
-                <div className="relative h-64 w-full bg-gray-200">
-                  <Image
-                    src={`/images/portfolio/${property.images[0]}`}
-                    alt={property.location}
-                    fill
-                    className="object-cover"
-                    fallbackSrc="/images/slider-icon.png"
-                  />
-                </div>
-
-                {/* Property Details */}
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <svg className="w-4 h-4 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 font-semibold">{property.location}</span>
+                <div
+                  onClick={() => setSelectedProperty(property)}
+                >
+                  {/* Property Image */}
+                  <div className="relative h-64 w-full bg-gray-200 overflow-hidden">
+                    <Image
+                      src={`/images/portfolio/${property.images[0]}`}
+                      alt={property.location}
+                      fill
+                      className="object-cover hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
 
-                  <div className="space-y-3 mb-6">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Year Purchased</span>
-                      <span className="font-semibold text-navy-700">{property.yearPurchased}</span>
+                  {/* Property Details */}
+                  <div className="p-6">
+                    <div className="flex items-center mb-4">
+                      <svg className="w-4 h-4 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700 font-semibold">{property.location}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Purchased Price</span>
-                      <span className="font-semibold text-navy-700">{property.purchasedPrice}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Current Price</span>
-                      <span className="font-semibold text-gold-500">{property.currentPrice}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Land Size</span>
-                      <span className="font-semibold text-navy-700">{property.landSize}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Rent</span>
-                      <span className="font-semibold text-navy-700">{property.rent}</span>
-                    </div>
-                  </div>
 
-                  <button
-                    onClick={() => setSelectedProperty(property)}
-                    className="w-full px-6 py-2 bg-navy-700 text-white font-semibold rounded hover:bg-navy-800 transition-colors"
-                  >
-                    More Details
-                  </button>
+                    <div className="space-y-3 mb-6">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Year Purchased</span>
+                        <span className="font-semibold text-navy-700">{property.yearPurchased}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Purchased Price</span>
+                        <span className="font-semibold text-navy-700">{property.purchasedPrice}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Current Price</span>
+                        <span className="font-semibold text-gold-500">{property.currentPrice}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Land Size</span>
+                        <span className="font-semibold text-navy-700">{property.landSize}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Rent</span>
+                        <span className="font-semibold text-navy-700">{property.rent}</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setSelectedProperty(property)}
+                      className="w-full px-6 py-2 bg-navy-700 text-white font-semibold rounded hover:bg-navy-800 transition-colors depth-2"
+                    >
+                      More Details
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </Card3D>
             ))}
           </div>
 
           <div className="text-center">
-            <button className="px-10 py-3 border-2 border-gold-500 text-gold-500 font-semibold rounded hover:bg-gold-50 transition-colors">
+            <button className="px-10 py-3 border-2 border-gold-500 text-gold-500 font-semibold rounded hover:bg-gold-50 transition-colors depth-2 hover:depth-3">
               See More Wins
             </button>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
 
       {/* Property Modal */}
       {selectedProperty && (
