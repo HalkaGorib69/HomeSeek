@@ -49,7 +49,7 @@ export default function Card3D({ children, className = '' }: Card3DProps) {
       }}
     >
       <div
-        className="relative"
+        className="relative flex flex-col h-full"
         style={{
           boxShadow: isHovering
             ? '0 20px 60px rgba(0, 0, 0, 0.3)'

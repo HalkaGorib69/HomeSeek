@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react'
 import ParallaxSection from './ParallaxSection'
-import Card3D from './Card3D'
 import { useScroll } from '@/context/ScrollContext'
 
 export default function ContactSection() {
@@ -58,13 +57,13 @@ export default function ContactSection() {
   }
 
   return (
-    <ParallaxSection id="contact" className="py-20 bg-white" parallaxStrength={0.1}>
+    <ParallaxSection id="contact" className="py-20 pb-48 bg-white" parallaxStrength={0.1}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Left: Contact Info */}
           <div>
             <h2 className="text-5xl font-bold text-navy-700 mb-6">
-              Let's Talk Property —{' '}
+              Let's Talk Property{' '}
               <span className="text-gold-500">The Smart Way</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
@@ -80,16 +79,10 @@ export default function ContactSection() {
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-gold-500">
                     <svg
                       className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
+                      fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                     </svg>
                   </div>
                 </div>
@@ -108,16 +101,11 @@ export default function ContactSection() {
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-gold-500">
                     <svg
                       className="h-6 w-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
+                      fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22 6 12 13 2 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                 </div>
@@ -164,7 +152,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right: Contact Form */}
-          <Card3D className="depth-2">
+          <div className="relative depth-2 rounded-lg p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
@@ -226,18 +214,18 @@ export default function ContactSection() {
                 </p>
               )}
             </form>
+          </div>
+        </div>
 
-            {/* Map */}
-            <div className="mt-8 h-96 rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31671.30485679026!2d150.81013040083008!3d-33.98153804724823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ec3f7e58014b%3A0x5017d681632b450!2sDenham%20Court%20NSW%202565!5e1!3m2!1sen!2sau!4v1769834219787!5m2!1sen!2sau"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-              />
-            </div>
-          </Card3D>
+        {/* Map - Full Width Below Form */}
+        <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg depth-2 mb-16">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31671.30485679026!2d150.81013040083008!3d-33.98153804724823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ec3f7e58014b%3A0x5017d681632b450!2sDenham%20Court%20NSW%202565!5e1!3m2!1sen!2sau!4v1769834219787!5m2!1sen!2sau"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+          />
         </div>
       </div>
     </ParallaxSection>
