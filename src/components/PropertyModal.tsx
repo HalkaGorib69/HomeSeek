@@ -51,7 +51,6 @@ export default function PropertyModal({ property, onClose }: PropertyModalProps)
                   alt={property.location}
                   fill
                   className="object-cover"
-                  fallbackSrc="/images/slider-icon.png"
                 />
               </div>
 
