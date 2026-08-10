@@ -53,7 +53,7 @@ export default function AboutSection() {
           <div>
             <h2 className="text-5xl font-bold mb-6 text-navy-700">Who We Are</h2>
             <p className="text-lg text-gray-600 mb-4">
-              HomeSeek Advisory is an independent buyer's agency focused on helping
+              HomeSeek Advisory is an independent buyer&apos;s agency focused on helping
               clients make smarter property decisions.
             </p>
             <p className="text-lg text-gray-600 mb-6">

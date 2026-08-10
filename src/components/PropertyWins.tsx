@@ -111,7 +111,7 @@ export default function PropertyWins() {
               Specialists. Advocates. Not Salespeople.
             </p>
             <p className="text-xl text-gray-600">
-              Here are just a few of the properties we've helped clients secure:
+              Here are just a few of the properties we&apos;ve helped clients secure:
             </p>
           </div>
 

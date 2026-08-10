@@ -58,7 +58,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Common questions about working with an independent buyer's agent and how
+            Common questions about working with an independent buyer&apos;s agent and how
             HomeSeek Advisory supports you through the buying process.
           </p>
         </div>

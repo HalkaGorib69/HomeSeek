@@ -23,7 +23,7 @@ export default function HeroSlider() {
             <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
             </svg>
-            <p className="text-gray-700 font-semibold text-sm md:text-base">Buyer's Advisory</p>
+            <p className="text-gray-700 font-semibold text-sm md:text-base">Buyer&apos;s Advisory</p>
           </div>
 
           {/* Main Heading */}

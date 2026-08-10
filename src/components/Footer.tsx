@@ -7,7 +7,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-gold-400 mb-4">HomeSeek Advisory</h3>
             <p className="text-gray-300 text-sm">
-              Independent buyer's agent helping Australians purchase property with
+              Independent buyer&apos;s agent helping Australians purchase property with
               data-driven insights, suburb research, and buyer-first strategy across
               Australia.
             </p>

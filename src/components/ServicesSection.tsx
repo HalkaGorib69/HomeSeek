@@ -47,7 +47,7 @@ export default function ServicesSection() {
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-navy-700 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Specialized buyer's agent services tailored to your unique needs and goals
+            Specialized buyer&apos;s agent services tailored to your unique needs and goals
           </p>
         </div>
 

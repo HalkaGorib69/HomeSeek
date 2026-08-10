@@ -63,13 +63,13 @@ export default function ContactSection() {
           {/* Left: Contact Info */}
           <div>
             <h2 className="text-5xl font-bold text-navy-700 mb-6">
-              Let's Talk Property{' '}
+              Let&apos;s Talk Property{' '}
               <span className="text-gold-500">The Smart Way</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Whether you're ready to buy, exploring your options, or just need some
-              clarity — I'm here to help. Just call me or submit your questions and
-              I'll guide you toward your best next step.
+              Whether you&apos;re ready to buy, exploring your options, or just need some
+              clarity — I&apos;m here to help. Just call me or submit your questions and
+              I&apos;ll guide you toward your best next step.
             </p>
 
             {/* Contact Boxes */}
@@ -196,7 +196,7 @@ export default function ContactSection() {
               </button>
               {submitStatus === 'success' && (
                 <p className="text-green-600 text-center font-semibold">
-                  Message sent successfully! We'll be in touch soon.
+                  Message sent successfully! We&apos;ll be in touch soon.
                 </p>
               )}
               {submitStatus === 'error' && (

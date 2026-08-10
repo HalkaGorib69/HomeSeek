@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=optional" rel="stylesheet" />
       </head>
       <body className="bg-white text-gray-700">
         <ScrollProvider>

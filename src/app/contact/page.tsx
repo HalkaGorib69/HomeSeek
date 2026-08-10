@@ -287,7 +287,7 @@ export default function ContactPage() {
 
                 {submitStatus === 'success' && (
                   <p className="text-green-600 text-center font-semibold">
-                    Message sent successfully! We'll be in touch soon.
+                    Message sent successfully! We&apos;ll be in touch soon.
                   </p>
                 )}
                 {submitStatus === 'error' && (
