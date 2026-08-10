@@ -76,13 +76,9 @@ export default function ContactSection() {
             <div className="space-y-6 mb-8">
               <div className="flex gap-4 items-start">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-gold-500">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gold-500">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21.97 8.57c0-.91-.33-1.82-.97-2.43L16.07 2c-.6-.6-1.51-.97-2.43-.97-.91 0-1.82.33-2.43.97l-2.14 2.14c-.76.76-.76 2.01 0 2.77l4.9 4.9c.76.76 2.01.76 2.77 0l2.14-2.14c.64-.65.97-1.52.97-2.43zm-9.94 9.94l-4.9-4.9c-.76-.76-2.01-.76-2.77 0L2 11.28c-.64.65-.97 1.52-.97 2.43 0 .91.33 1.82.97 2.43l5.86 5.86c.6.6 1.51.97 2.43.97.91 0 1.82-.33 2.43-.97l2.14-2.14c.76-.76.76-2.01 0-2.77z"/>
                     </svg>
                   </div>
                 </div>
@@ -98,14 +94,9 @@ export default function ContactSection() {
 
               <div className="flex gap-4 items-start">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-gold-500">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                      <polyline points="22 6 12 13 2 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gold-500">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                   </div>
                 </div>
