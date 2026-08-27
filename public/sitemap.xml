@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.homeseekadvisory.com.au/images/HomeSeek.png</image:loc>
+      <image:title>HomeSeek Advisory Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.homeseekadvisory.com.au/images/hero-banner.png</image:loc>
+      <image:title>Modern Property Image</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/#about</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.homeseekadvisory.com.au/images/left-image.png</image:loc>
+      <image:title>About HomeSeek Advisory</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/#services</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/#portfolio</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>bi-weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/#faq</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/#contact</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.homeseekadvisory.com.au/contact</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

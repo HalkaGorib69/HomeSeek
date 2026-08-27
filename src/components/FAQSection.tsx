@@ -43,6 +43,20 @@ export default function FAQSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [sectionOffset, setSectionOffset] = useState(0)
 
+  // Generate FAQ schema for SEO
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+
   useEffect(() => {
     if (!sectionRef.current) return
     const rect = sectionRef.current.getBoundingClientRect()
@@ -51,7 +65,12 @@ export default function FAQSection() {
   }, [])
 
   return (
-    <ParallaxSection id="faq" className="py-20 bg-gray-50" parallaxStrength={0.1}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ParallaxSection id="faq" className="py-20 bg-gray-50" parallaxStrength={0.1}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-navy-700 mb-4">
@@ -129,5 +148,6 @@ export default function FAQSection() {
         </div>
       </div>
     </ParallaxSection>
+    </>
   )
 }

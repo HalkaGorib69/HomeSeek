@@ -1,0 +1,10 @@
+/* TEAM */
+  Company: HomeSeek Advisory
+  Website: https://www.homeseekadvisory.com.au
+  Contact: sabi.hossan@homeseekadvisory.com.au
+
+/* SITE */
+  Last update: 2026-08-27
+  Standards: HTML5, CSS3, JavaScript
+  Components: Next.js, React, Tailwind CSS
+  Language: English (en-AU)

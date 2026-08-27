@@ -26,9 +26,9 @@ export default function HeroSlider() {
             <p className="text-gray-700 font-semibold text-sm md:text-base">Buyer&apos;s Advisory</p>
           </div>
 
-          {/* Main Heading */}
+          {/* Main Heading - Critical for SEO */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Smart Property Decisions, Without the Bias
+            Smart Property Decisions Without the Bias | Buyer&apos;s Advisory
           </h1>
 
           {/* Description with left border */}
@@ -60,7 +60,7 @@ export default function HeroSlider() {
           <div className="relative w-96 h-screen">
             <Image
               src="/images/hero-banner.png"
-              alt="Modern house"
+              alt="Modern house - HomeSeek Advisory property buying guidance"
               fill
               className="object-contain object-center"
               priority
