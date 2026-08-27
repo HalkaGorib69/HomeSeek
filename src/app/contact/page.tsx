@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -16,6 +15,14 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  useEffect(() => {
+    // Load Calendly widget script
+    const script = document.createElement('script')
+    script.src = 'https://assets.calendly.com/assets/external/widget.js'
+    script.async = true
+    document.body.appendChild(script)
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -90,7 +97,6 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-navy-700 font-semibold">sabi.hossan@homeseekadvisory.com.au</p>
-                      <p className="text-navy-700">contact@homeseekadvisory.com.au</p>
                     </div>
                   </div>
                 </div>
@@ -115,7 +121,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <a href="tel:+61401540064" className="text-navy-700 font-semibold hover:text-gold-500">
-                        0483 967 180
+                        +61 401 540 064
                       </a>
                     </div>
                   </div>
@@ -146,8 +152,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-navy-700">3 Casandra Ct, Berwick,</p>
-                      <p className="text-navy-700">Melbourne, Victoria, Australia.</p>
+                      <p className="text-navy-700">Sydney, NSW | 2000</p>
+                      <p className="text-navy-700">Australia.</p>
                     </div>
                   </div>
                 </div>
@@ -300,6 +306,24 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+
+      {/* Calendly Section */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
+            <h2 className="text-4xl font-bold text-navy-700 mb-4">Book a Strategy Call</h2>
+            <p className="text-gray-600 text-lg">Schedule a consultation at your convenience</p>
+          </div>
+          <div className="flex justify-center">
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/sabi-hossan-homeseekadvisory/30min"
+              style={{ minWidth: '100%', height: '900px', overflow: 'hidden' }}
+            />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </>
   )

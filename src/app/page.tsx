@@ -4,6 +4,7 @@ import FloatingActions from '@/components/FloatingActions'
 import AboutSection from '@/components/AboutSection'
 import ServicesSection from '@/components/ServicesSection'
 import PropertyWins from '@/components/PropertyWins'
+import TestimonialsSection from '@/components/TestimonialsSection'
 import FAQSection from '@/components/FAQSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <PropertyWins />
+      <TestimonialsSection />
       <FAQSection />
       <ContactSection />
       <Footer />
