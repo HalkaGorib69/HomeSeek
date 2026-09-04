@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ScrollProvider } from '@/context/ScrollContext'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'HomeSeek Advisory | Independent Buyer\'s Agent Australia',
@@ -166,6 +167,7 @@ export default function RootLayout({
         <ScrollProvider>
           {children}
         </ScrollProvider>
+        <Analytics />
       </body>
     </html>
   )
