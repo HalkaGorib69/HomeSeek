@@ -38,32 +38,33 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <ParallaxSection id="about" className="py-20 bg-white" parallaxStrength={0.1}>
+    <ParallaxSection id="about" className="py-12 md:py-20 bg-white" parallaxStrength={0.1}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={aboutRef}>
         {/* Who We Are Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
-          <Card3D className="relative h-96 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-20 items-center">
+          <Card3D className="relative h-64 md:h-96 rounded-lg overflow-hidden">
             <Image
               src="/images/left-image.png"
               alt="About HomeSeek"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </Card3D>
           <div>
-            <h2 className="text-5xl font-bold mb-6 text-navy-700">Who We Are</h2>
-            <p className="text-lg text-gray-600 mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-navy-700">Who We Are</h2>
+            <p className="text-base md:text-lg text-gray-600 mb-3 md:mb-4">
               HomeSeek Advisory is an independent buyer&apos;s agency focused on helping
               clients make smarter property decisions.
             </p>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-base md:text-lg text-gray-600 mb-5 md:mb-6">
               We analyse over 15,000 suburbs across Australia, using supply, demand,
               growth indicators, and risk metrics to remove emotion from the buying process.
               Our role is simple, represent <strong>you</strong>, not the seller.
             </p>
             <Link
               href="#services"
-              className="inline-block px-8 py-3 bg-gold-500 text-white font-semibold rounded hover:bg-gold-600 transition-colors depth-2 hover:depth-4 transform hover:scale-105 duration-300"
+              className="inline-block px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base bg-gold-500 text-white font-semibold rounded hover:bg-gold-600 transition-colors depth-2 hover:depth-4 transform hover:scale-105 duration-300"
             >
               Our Services
             </Link>
@@ -72,36 +73,37 @@ export default function AboutSection() {
 
         {/* Why Choose Us Section */}
         <div
-          className="bg-gradient-to-r from-navy-700 to-navy-800 rounded-lg p-12 text-white depth-3"
+          className="bg-gradient-to-r from-navy-700 to-navy-800 rounded-lg p-6 md:p-12 text-white depth-3"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
             <div>
-              <h3 className="text-4xl font-bold mb-6">Why Buyers Choose HomeSeek Advisory</h3>
-              <p className="text-lg text-gray-100 mb-8">
+              <h3 className="text-2xl md:text-4xl font-bold mb-3 md:mb-6">Why Buyers Choose HomeSeek Advisory</h3>
+              <p className="text-base md:text-lg text-gray-100 mb-5 md:mb-8">
                 Buying property without independent advice can be risky. We exist to level
                 the playing field for buyers.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {benefits.map((benefit, index) => (
                 <div
                   key={benefit.title}
-                  className="flex gap-4 hover:translate-x-2 transition-transform duration-300"
+                  className="flex gap-3 md:gap-4 hover:translate-x-2 transition-transform duration-300"
                 >
                   <div className="flex-shrink-0">
-                    <div className="relative w-16 h-16">
+                    <div className="relative w-11 h-11 md:w-16 md:h-16">
                       <Image
                         src={benefit.icon}
                         alt={benefit.title}
                         fill
+                        sizes="64px"
                         className="object-contain"
                       />
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2 text-gold-400">{benefit.title}</h4>
-                    <p className="text-gray-100">{benefit.description}</p>
+                    <h4 className="text-base md:text-xl font-bold mb-1 md:mb-2 text-gold-400">{benefit.title}</h4>
+                    <p className="text-sm md:text-base text-gray-100">{benefit.description}</p>
                   </div>
                 </div>
               ))}

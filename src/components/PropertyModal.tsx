@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Property } from '@/types/property'
+import { useScroll } from '@/context/ScrollContext'
 
 interface PropertyModalProps {
   property: Property
@@ -10,7 +11,17 @@ interface PropertyModalProps {
 }
 
 export default function PropertyModal({ property, onClose }: PropertyModalProps) {
+  const { stopScroll, startScroll } = useScroll()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    stopScroll()
+    return () => {
+      document.body.style.overflow = ''
+      startScroll()
+    }
+  }, [])
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) =>
@@ -48,8 +59,9 @@ export default function PropertyModal({ property, onClose }: PropertyModalProps)
               <div className="relative h-96 w-full bg-gray-100 rounded-lg overflow-hidden mb-4">
                 <Image
                   src={`/images/portfolio/${property.images[currentImageIndex]}`}
-                  alt={property.location}
+                  alt={property.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -92,70 +104,30 @@ export default function PropertyModal({ property, onClose }: PropertyModalProps)
             {/* Right: Property Details */}
             <div>
               <h2 className="text-4xl font-bold text-navy-700 mb-6">
-                {property.location}
+                {property.title}
               </h2>
 
-              {/* Property Highlights */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-navy-700 mb-4">
-                  Property Highlights
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-gray-50 p-4 rounded">
-                    <p className="text-gray-600 text-sm mb-1">Bedrooms</p>
-                    <p className="text-2xl font-bold text-navy-700">
-                      {property.bedrooms}
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded">
-                    <p className="text-gray-600 text-sm mb-1">Bathrooms</p>
-                    <p className="text-2xl font-bold text-navy-700">
-                      {property.bathrooms}
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded">
-                    <p className="text-gray-600 text-sm mb-1">Parking</p>
-                    <p className="text-2xl font-bold text-navy-700">
-                      {property.parking}
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded">
-                    <p className="text-gray-600 text-sm mb-1">Land Size</p>
-                    <p className="text-2xl font-bold text-navy-700">
-                      {property.landSize}
-                    </p>
+              {/* Property Details */}
+              {property.fields.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-navy-700 mb-4">
+                    Property Details
+                  </h3>
+                  <div className="space-y-3">
+                    {property.fields.map((field, idx) => (
+                      <div
+                        key={field.label}
+                        className={`flex justify-between ${
+                          idx < property.fields.length - 1 ? 'border-b pb-2' : ''
+                        }`}
+                      >
+                        <span className="text-gray-600">{field.label}</span>
+                        <span className="font-semibold text-navy-700">{field.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-
-              {/* Deal Snapshot */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-navy-700 mb-4">
-                  Deal Snapshot
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="text-gray-600">Year Purchased</span>
-                    <span className="font-semibold">{property.yearPurchased}</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="text-gray-600">Purchased Price</span>
-                    <span className="font-semibold text-navy-700">
-                      {property.purchasedPrice}
-                    </span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="text-gray-600">Current Price</span>
-                    <span className="font-semibold text-gold-500">
-                      {property.currentPrice}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Rent</span>
-                    <span className="font-semibold">{property.rent}</span>
-                  </div>
-                </div>
-              </div>
+              )}
 
               {/* About Property */}
               <div>

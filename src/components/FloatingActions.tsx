@@ -1,26 +1,53 @@
 'use client'
 
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { useScroll } from '@/context/ScrollContext'
+
 export default function FloatingActions() {
   const whatsappLink = 'https://wa.me/61430654824?text=Hi%20HomeSeek%20Advisory,%20I%20would%20like%20to%20book%20a%20strategy%20call.'
   const phoneLink = 'tel:+61401540064'
 
+  const { scrollY } = useScroll()
+  const [isIdle, setIsIdle] = useState(true)
+  const lastScrollY = useRef(scrollY)
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    if (scrollY !== lastScrollY.current) {
+      lastScrollY.current = scrollY
+      setIsIdle(false)
+
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current)
+      idleTimerRef.current = setTimeout(() => setIsIdle(true), 500)
+    }
+
+    return () => {
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current)
+    }
+  }, [scrollY])
+
   return (
-    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-4">
+    <div
+      className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-4 transition-opacity duration-300 ${
+        isIdle ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+    >
       {/* WhatsApp Button */}
       <a
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all transform hover:scale-110"
+        className="flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition-all transform hover:scale-110 overflow-hidden"
         title="Chat on WhatsApp"
       >
-        <svg
-          className="w-6 h-6"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.869 1.171A9.904 9.904 0 002.064 12c0 5.444 4.412 9.944 9.842 9.944 2.326 0 4.5-.822 6.255-2.176l4.525 1.187-1.21-4.396a9.86 9.86 0 001.922-5.96c0-5.444-4.413-9.944-9.842-9.944Z" />
-        </svg>
+        <Image
+          src="/images/whatsapp_icon.webp"
+          alt="WhatsApp"
+          width={32}
+          height={32}
+          className="w-8 h-8 object-contain"
+        />
       </a>
 
       {/* Phone Button */}

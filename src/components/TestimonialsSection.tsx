@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [autoScroll, setAutoScroll] = useState(true)
+  const [withTransition, setWithTransition] = useState(true)
   const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
   const testimonials = [
@@ -58,42 +59,66 @@ export default function TestimonialsSection() {
     }
   ]
 
+  // 1 card visible on mobile, 3 on md+ — matches the w-full / md:w-1/3 card widths below
+  const [visibleCount, setVisibleCount] = useState(3)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const update = () => setVisibleCount(mq.matches ? 3 : 1)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  // Clone the first `visibleCount` items onto the end for a seamless infinite loop
+  const trackItems = [...testimonials, ...testimonials.slice(0, visibleCount)]
+
   useEffect(() => {
     if (!autoScroll) return
 
     scrollIntervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-    }, 5000)
+      setWithTransition(true)
+      setCurrentIndex((prevIndex) => prevIndex + 1)
+    }, 2000)
 
     return () => {
       if (scrollIntervalRef.current) {
         clearInterval(scrollIntervalRef.current)
       }
     }
-  }, [autoScroll, testimonials.length])
+  }, [autoScroll])
+
+  // When the track slides onto the cloned tail, snap back to the real start with no transition
+  const handleTransitionEnd = () => {
+    if (currentIndex >= testimonials.length) {
+      setWithTransition(false)
+      setCurrentIndex(0)
+    }
+  }
+
+  useEffect(() => {
+    if (!withTransition) {
+      const id = requestAnimationFrame(() => setWithTransition(true))
+      return () => cancelAnimationFrame(id)
+    }
+  }, [withTransition])
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+    setWithTransition(true)
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1))
     setAutoScroll(false)
     setTimeout(() => setAutoScroll(true), 10000)
   }
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+    setWithTransition(true)
+    setCurrentIndex((prevIndex) => prevIndex + 1)
     setAutoScroll(false)
     setTimeout(() => setAutoScroll(true), 10000)
   }
 
-  const getVisibleTestimonials = () => {
-    const visible = []
-    for (let i = 0; i < 3; i++) {
-      visible.push(testimonials[(currentIndex + i) % testimonials.length])
-    }
-    return visible
-  }
-
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="relative pt-32 pb-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -124,11 +149,18 @@ export default function TestimonialsSection() {
 
         {/* Testimonials Carousel */}
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden">
-            {getVisibleTestimonials().map((testimonial) => (
+          <div className="overflow-hidden">
+            <div
+              className={`flex gap-6 ${withTransition ? 'transition-transform duration-700 ease-in-out' : ''}`}
+              style={{
+                transform: `translateX(calc(-${currentIndex} * (100% + 1.5rem) / ${visibleCount}))`,
+              }}
+              onTransitionEnd={handleTransitionEnd}
+            >
+              {trackItems.map((testimonial, idx) => (
               <div
-                key={testimonial.id}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                key={`${testimonial.id}-${idx}`}
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow flex-shrink-0 w-full md:w-[calc((100%-3rem)/3)]"
               >
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
@@ -164,7 +196,8 @@ export default function TestimonialsSection() {
                   Read more
                 </button>
               </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Navigation Arrows */}
@@ -187,22 +220,29 @@ export default function TestimonialsSection() {
 
         {/* Indicators */}
         <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setCurrentIndex(index)
-                setAutoScroll(false)
-                setTimeout(() => setAutoScroll(true), 10000)
-              }}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index >= currentIndex && index < currentIndex + 3
-                  ? 'bg-navy-700'
-                  : 'bg-gray-300'
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
+          {testimonials.map((_, index) => {
+            const activeIndex = currentIndex % testimonials.length
+            const isActive =
+              index >= activeIndex && index < activeIndex + visibleCount
+              ? true
+              : activeIndex + visibleCount > testimonials.length &&
+                index < (activeIndex + visibleCount) % testimonials.length
+            return (
+              <button
+                key={index}
+                onClick={() => {
+                  setWithTransition(true)
+                  setCurrentIndex(index)
+                  setAutoScroll(false)
+                  setTimeout(() => setAutoScroll(true), 10000)
+                }}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  isActive ? 'bg-navy-700' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            )
+          })}
         </div>
       </div>
     </section>

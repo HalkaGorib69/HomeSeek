@@ -3,9 +3,10 @@ import './globals.css'
 import { ScrollProvider } from '@/context/ScrollContext'
 
 export const metadata: Metadata = {
-  title: 'HomeSeek Advisory | Independent Buyer\'s Agent Australia',
-  description: 'Independent buyer\'s agent helping Australians buy property with confidence. Data-driven suburb research, property strategy, and buyer-first representation across Australia.',
-  keywords: 'buyers agent, property buyers agent, real estate advisory, investment property advice, home buying, Sydney buyers agent, Australia property',
+  metadataBase: new URL('https://www.homeseekadvisory.com.au'),
+  title: 'Buyers Agent Sydney | HomeSeek Advisory - Independent Buyer\'s Agent',
+  description: 'Sydney\'s independent buyers agent. We represent buyers, not sellers — data-driven suburb research, off-market access, and skilled negotiation for Sydney property buyers, investors, and first home buyers.',
+  keywords: 'buyers agent Sydney, Sydney buyers agent, buyers advocate Sydney, property buyers agent Sydney, Sydney real estate buyers agent, buyers agent South West Sydney, buyers agent Western Sydney, investment property Sydney, first home buyer Sydney, independent buyers agent NSW, off market properties Sydney',
   authors: [{ name: 'HomeSeek Advisory' }],
   creator: 'HomeSeek Advisory',
   publisher: 'HomeSeek Advisory',
@@ -20,10 +21,14 @@ export const metadata: Metadata = {
     'max-snippet': -1,
     'max-video-preview': -1,
   },
+  alternates: {
+    canonical: 'https://www.homeseekadvisory.com.au',
+  },
   openGraph: {
-    title: 'HomeSeek Advisory | Independent Buyer\'s Agent',
-    description: 'Expert property buying guidance for Australian buyers. Data-driven decisions, suburb research, and buyer-first strategy.',
+    title: 'Buyers Agent Sydney | HomeSeek Advisory',
+    description: 'Independent buyers agent serving Sydney, NSW. Data-driven suburb research, off-market access, and buyer-first negotiation.',
     type: 'website',
+    locale: 'en_AU',
     url: 'https://www.homeseekadvisory.com.au/',
     siteName: 'HomeSeek Advisory',
     images: [
@@ -31,14 +36,14 @@ export const metadata: Metadata = {
         url: 'https://www.homeseekadvisory.com.au/images/HomeSeek.png',
         width: 1200,
         height: 630,
-        alt: 'HomeSeek Advisory',
+        alt: 'HomeSeek Advisory - Buyers Agent Sydney',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HomeSeek Advisory | Buyer\'s Agent',
-    description: 'Data-driven property buying guidance for Australians.',
+    title: 'Buyers Agent Sydney | HomeSeek Advisory',
+    description: 'Independent buyers agent serving Sydney, NSW. Data-driven property decisions, buyer-first strategy.',
     images: ['https://www.homeseekadvisory.com.au/images/HomeSeek.png'],
   },
 }
@@ -59,8 +64,13 @@ export default function RootLayout({
 
         {/* Canonical & SEO */}
         <link rel="canonical" href="https://www.homeseekadvisory.com.au" />
-        <meta name="google-site-verification" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+        {/* Local SEO geo tags */}
+        <meta name="geo.region" content="AU-NSW" />
+        <meta name="geo.placename" content="Sydney" />
+        <meta name="geo.position" content="-33.8688;151.2093" />
+        <meta name="ICBM" content="-33.8688, 151.2093" />
 
         {/* Fonts with Performance Optimization */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -101,38 +111,45 @@ export default function RootLayout({
                     telephone: '+61401540064',
                     contactType: 'Customer Service',
                     email: 'sabi.hossan@homeseekadvisory.com.au',
-                    areaServed: 'AU',
+                    areaServed: 'Sydney, NSW',
+                    availableLanguage: 'English',
                   },
                 },
                 {
-                  '@type': 'LocalBusiness',
+                  '@type': 'RealEstateAgent',
                   '@id': 'https://www.homeseekadvisory.com.au/#localbusiness',
                   name: 'HomeSeek Advisory',
                   image: 'https://www.homeseekadvisory.com.au/images/HomeSeek.png',
-                  description: 'Independent buyer\'s agent providing data-driven property buying advice across Australia.',
+                  description: 'Independent buyers agent serving Sydney, NSW. We represent buyers only — data-driven suburb research, off-market access, and skilled negotiation.',
                   url: 'https://www.homeseekadvisory.com.au',
                   telephone: '+61401540064',
                   email: 'sabi.hossan@homeseekadvisory.com.au',
                   priceRange: '$$',
                   address: {
                     '@type': 'PostalAddress',
-                    streetAddress: '3 Casandra Ct',
-                    addressLocality: 'Berwick',
-                    addressRegion: 'VIC',
-                    postalCode: '3806',
+                    addressLocality: 'Sydney',
+                    addressRegion: 'NSW',
                     addressCountry: 'AU',
                   },
-                  areaServed: {
-                    '@type': 'Country',
-                    name: 'AU',
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: -33.8688,
+                    longitude: 151.2093,
                   },
+                  areaServed: [
+                    { '@type': 'City', name: 'Sydney' },
+                    { '@type': 'AdministrativeArea', name: 'Greater Western Sydney' },
+                    { '@type': 'AdministrativeArea', name: 'South West Sydney' },
+                    { '@type': 'State', name: 'New South Wales' },
+                  ],
                   openingHoursSpecification: {
                     '@type': 'OpeningHoursSpecification',
                     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
                     opens: '09:00',
                     closes: '17:00',
                   },
-                  serviceType: ['Real Estate Buyer Agent', 'Property Investment Advisory', 'Real Estate Consulting'],
+                  serviceType: ['Buyers Agent', 'Buyers Advocate', 'Property Investment Advisory', 'First Home Buyer Advisory', 'Real Estate Consulting'],
+                  knowsAbout: ['Sydney property market', 'Suburb research', 'Property negotiation', 'Off-market properties', 'Investment property strategy'],
                   aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: '5',
@@ -144,7 +161,8 @@ export default function RootLayout({
                   '@id': 'https://www.homeseekadvisory.com.au/#website',
                   url: 'https://www.homeseekadvisory.com.au',
                   name: 'HomeSeek Advisory',
-                  description: 'Independent buyer\'s agent for Australian property buyers',
+                  description: 'Independent buyers agent for Sydney property buyers',
+                  inLanguage: 'en-AU',
                   publisher: {
                     '@id': 'https://www.homeseekadvisory.com.au/#organization',
                   },

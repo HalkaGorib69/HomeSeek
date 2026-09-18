@@ -1,35 +1,53 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { redis, INQUIRIES_KEY } from '@/lib/redis'
+import { Inquiry } from '@/types/inquiry'
+
+async function readInquiries(): Promise<Inquiry[]> {
+  const data = await redis.get<Inquiry[]>(INQUIRIES_KEY)
+  return data ?? []
+}
+
+async function writeInquiries(inquiries: Inquiry[]) {
+  await redis.set(INQUIRIES_KEY, inquiries)
+}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, message } = body
+    const { name, email, phone, message, source, date, financeApproval } = body
 
-    // Validation
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !phone) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       )
     }
 
-    // Here you would typically send an email using a service like Resend, SendGrid, etc.
-    // For now, we'll just log it and return success
-    console.log('Contact form submission:', { name, email, phone, message })
+    const extraDetails = [
+      date ? `Preferred contact date: ${date}` : null,
+      financeApproval ? `Finance pre-approval: ${financeApproval}` : null,
+    ].filter(Boolean)
 
-    // TODO: Integrate with email service (Resend, SendGrid, Nodemailer, etc.)
-    // Example with Resend (uncomment to use):
-    // const res = await resend.emails.send({
-    //   from: 'noreply@homeseekadvisory.com.au',
-    //   to: 'sabi.hossan@homeseekadvisory.com.au',
-    //   subject: `New inquiry from ${name}`,
-    //   html: `
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>Email:</strong> ${email}</p>
-    //     <p><strong>Phone:</strong> ${phone}</p>
-    //     <p><strong>Message:</strong> ${message}</p>
-    //   `,
-    // })
+    const fullMessage = [message, ...extraDetails].filter(Boolean).join('\n')
+
+    const inquiries = await readInquiries()
+    const newId = inquiries.length > 0 ? Math.max(...inquiries.map((i) => i.id)) + 1 : 1
+
+    const newInquiry: Inquiry = {
+      id: newId,
+      name,
+      email,
+      phone,
+      message: fullMessage,
+      source: source || 'Contact Form',
+      status: 'pending',
+      createdAt: new Date().toISOString(),
+    }
+
+    inquiries.unshift(newInquiry)
+    await writeInquiries(inquiries)
+
+    // TODO: Optionally also send an email notification (Resend, SendGrid, etc.)
 
     return NextResponse.json(
       { success: true, message: 'Message received' },

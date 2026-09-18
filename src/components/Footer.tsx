@@ -18,8 +18,8 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-white mb-4">Contact Us</h4>
             <div className="space-y-3">
               <p className="text-gray-300 flex items-start gap-2">
-                <svg className="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.79l.291 1.991a1 1 0 01-.523 1.12l-2.292 1.148A4 4 0 0011.71 12.738l1.932-1.146a1 1 0 011.12.523l.291 1.991a1 1 0 01-.79.986l-2.153.291a1 1 0 00-.822.997V19a1 1 0 01-1 1h-2C6.77 20 3 16.23 3 11.5 3 7.358 5.358 3 9.5 3H11a1 1 0 011-1h2.153z" />
+                <svg className="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <a href="tel:+61401540064" className="hover:text-gold-400 transition-colors">
                   +61 401 540 064

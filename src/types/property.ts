@@ -1,14 +1,12 @@
+export interface PropertyField {
+  label: string;
+  value: string;
+}
+
 export interface Property {
   id: number;
-  location: string;
-  bedrooms: number;
-  bathrooms: number;
-  parking: number;
-  landSize: string;
-  yearPurchased: number;
-  purchasedPrice: string;
-  currentPrice: string;
-  rent: string;
+  title: string;
   description: string;
   images: string[];
+  fields: PropertyField[];
 }

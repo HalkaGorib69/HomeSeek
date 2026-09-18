@@ -23,77 +23,17 @@ export default function PropertyWins() {
   }, [])
 
   useEffect(() => {
-    // Load properties from JSON
     const loadProperties = async () => {
       try {
-        const response = await fetch('/src/data/properties.json')
+        const response = await fetch('/api/properties')
         const data = await response.json()
         setProperties(data)
       } catch (error) {
-        // Fallback data
         console.error('Error loading properties:', error)
       }
     }
 
-    // For demo, use inline data
-    setProperties([
-      {
-        id: 1,
-        location: "Surry Hills, NSW",
-        images: ["p1.webp"],
-        bedrooms: 3,
-        bathrooms: 2,
-        parking: 2,
-        landSize: "280 m²",
-        yearPurchased: 2023,
-        purchasedPrice: "$850,000",
-        currentPrice: "$920,000",
-        rent: "$520/week",
-        description: "Strategic acquisition in one of Sydney's most sought-after suburbs."
-      },
-      {
-        id: 2,
-        location: "Bayside, VIC",
-        images: ["p1.webp"],
-        bedrooms: 4,
-        bathrooms: 2,
-        parking: 3,
-        landSize: "450 m²",
-        yearPurchased: 2022,
-        purchasedPrice: "$1,200,000",
-        currentPrice: "$1,380,000",
-        rent: "$680/week",
-        description: "Premium residential acquisition in prestigious Bayside location."
-      },
-      {
-        id: 3,
-        location: "Paddington, NSW",
-        images: ["p1.webp"],
-        bedrooms: 3,
-        bathrooms: 2,
-        parking: 1,
-        landSize: "320 m²",
-        yearPurchased: 2024,
-        purchasedPrice: "$950,000",
-        currentPrice: "$980,000",
-        rent: "$580/week",
-        description: "Recent acquisition in the vibrant Paddington area."
-      },
-      {
-        id: 4,
-        location: "Toorak, VIC",
-        images: ["p1.webp"],
-        bedrooms: 5,
-        bathrooms: 3,
-        parking: 3,
-        landSize: "550 m²",
-        yearPurchased: 2021,
-        purchasedPrice: "$1,500,000",
-        currentPrice: "$1,680,000",
-        rent: "$750/week",
-        description: "Premium acquisition in prestigious Toorak."
-      }
-    ])
+    loadProperties()
   }, [])
 
   const distanceFromCenter = Math.abs(scrollY - sectionOffset)
@@ -101,7 +41,7 @@ export default function PropertyWins() {
 
   return (
     <>
-      <ParallaxSection id="portfolio" className="py-20 bg-white" parallaxStrength={0.1}>
+      <ParallaxSection id="portfolio" className="pt-20 pb-32 bg-white" parallaxStrength={0.05}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-navy-700 mb-4">
@@ -115,7 +55,7 @@ export default function PropertyWins() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {properties.map((property, index) => (
               <Card3D
                 key={property.id}
@@ -125,50 +65,37 @@ export default function PropertyWins() {
                   onClick={() => setSelectedProperty(property)}
                 >
                   {/* Property Image */}
-                  <div className="relative h-64 w-full bg-gray-200 overflow-hidden">
+                  <div className="relative h-40 w-full bg-gray-200 overflow-hidden">
                     <Image
                       src={`/images/portfolio/${property.images[0]}`}
-                      alt={property.location}
+                      alt={property.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover hover:scale-110 transition-transform duration-500"
                     />
                   </div>
 
                   {/* Property Details */}
-                  <div className="p-6">
-                    <div className="flex items-center mb-4">
-                      <svg className="w-4 h-4 text-gold-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="p-4">
+                    <div className="flex items-center mb-3">
+                      <svg className="w-3.5 h-3.5 text-gold-500 mr-1.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-gray-700 font-semibold">{property.location}</span>
+                      <span className="text-gray-700 font-semibold text-sm">{property.title}</span>
                     </div>
 
-                    <div className="space-y-3 mb-6">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Year Purchased</span>
-                        <span className="font-semibold text-navy-700">{property.yearPurchased}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Purchased Price</span>
-                        <span className="font-semibold text-navy-700">{property.purchasedPrice}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Current Price</span>
-                        <span className="font-semibold text-gold-500">{property.currentPrice}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Land Size</span>
-                        <span className="font-semibold text-navy-700">{property.landSize}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Rent</span>
-                        <span className="font-semibold text-navy-700">{property.rent}</span>
-                      </div>
+                    <div className="space-y-1.5 mb-4">
+                      {property.fields.map((field) => (
+                        <div key={field.label} className="flex justify-between text-xs">
+                          <span className="text-gray-600">{field.label}</span>
+                          <span className="font-semibold text-navy-700">{field.value}</span>
+                        </div>
+                      ))}
                     </div>
 
                     <button
                       onClick={() => setSelectedProperty(property)}
-                      className="w-full px-6 py-2 bg-navy-700 text-white font-semibold rounded hover:bg-navy-800 transition-colors depth-2"
+                      className="w-full px-4 py-1.5 text-sm bg-navy-700 text-white font-semibold rounded hover:bg-navy-800 transition-colors depth-2"
                     >
                       More Details
                     </button>

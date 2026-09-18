@@ -22,13 +22,33 @@ export default function ParallaxSection({
 
   useEffect(() => {
     if (!sectionRef.current) return
+    const el = sectionRef.current
 
-    const rect = sectionRef.current.getBoundingClientRect()
-    const elementTop = window.scrollY + rect.top
-    setSectionOffset(elementTop)
+    const measure = () => {
+      const rect = el.getBoundingClientRect()
+      setSectionOffset(window.scrollY + rect.top)
+    }
+
+    measure()
+
+    // Re-measure whenever the section's size/position changes — e.g. when
+    // async content (like property cards) finishes loading and the section
+    // grows, which would otherwise leave this offset stale.
+    const resizeObserver = new ResizeObserver(measure)
+    resizeObserver.observe(el)
+    window.addEventListener('resize', measure)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', measure)
+    }
   }, [])
 
-  const parallaxOffset = (scrollY - sectionOffset) * parallaxStrength
+  // Clamp the drift so content can never travel far enough to overlap
+  // an adjacent section, regardless of scroll distance or section height.
+  const maxOffset = 40
+  const rawOffset = (scrollY - sectionOffset) * parallaxStrength
+  const parallaxOffset = Math.max(-maxOffset, Math.min(maxOffset, rawOffset))
 
   return (
     <div

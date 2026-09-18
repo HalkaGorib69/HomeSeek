@@ -6,6 +6,8 @@ import Lenis from 'lenis'
 interface ScrollContextType {
   scrollProgress: number
   scrollY: number
+  stopScroll: () => void
+  startScroll: () => void
 }
 
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined)
@@ -70,8 +72,16 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  const stopScroll = () => {
+    lenisRef.current?.stop()
+  }
+
+  const startScroll = () => {
+    lenisRef.current?.start()
+  }
+
   return (
-    <ScrollContext.Provider value={{ scrollProgress, scrollY }}>
+    <ScrollContext.Provider value={{ scrollProgress, scrollY, stopScroll, startScroll }}>
       {children}
     </ScrollContext.Provider>
   )

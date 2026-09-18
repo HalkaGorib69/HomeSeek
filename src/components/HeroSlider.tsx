@@ -8,8 +8,8 @@ export default function HeroSlider() {
   const { scrollY } = useScroll()
 
   return (
-    <section id="home" className="relative w-full min-h-screen bg-gray-50 overflow-hidden z-0 pt-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+    <section id="home" className="relative w-full md:min-h-screen bg-gray-50 overflow-hidden z-0 pt-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:min-h-screen">
         {/* Left: Text Content */}
         <div
           className="relative z-10 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-12"
@@ -62,6 +62,7 @@ export default function HeroSlider() {
               src="/images/hero-banner.png"
               alt="Modern house - HomeSeek Advisory property buying guidance"
               fill
+              sizes="384px"
               className="object-contain object-center"
               priority
             />
